@@ -14,6 +14,7 @@ import javax.swing.UIManager;
  */
 public class QR extends javax.swing.JFrame {
 
+    boolean codigo = true;
     GeneradorQR GE = new GeneradorQR();
    
     public QR() {
@@ -168,7 +169,18 @@ public class QR extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGenerarActionPerformed
-       GE.Generador(this, txtURL);
+       
+        if(codigo == true){
+            GE.Generador(this, txtURL);
+            BtnGenerar.setText("Nuevo QR");
+            //We change the boolean a false
+            codigo = false;
+        } else{
+            GE.Nuevo(this, txtURL);
+            BtnGenerar.setText("Generar");
+            //We change the boolean a true
+            codigo = true;
+        }
     }//GEN-LAST:event_BtnGenerarActionPerformed
 
     private void CerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CerrarMouseEntered

@@ -84,4 +84,14 @@ public class GeneradorQR {
             Logger.getLogger(GeneradorQR.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void Nuevo(JFrame frame, JTextField URL) {
+        URL.setText(""); // Limpiar el contenido del JTextField
+        
+        if (frame instanceof QR) {
+            QR qrFrame = (QR) frame;
+            JLabel lblQR = qrFrame.lblQR;
+            lblQR.setIcon(null); // Eliminar el icono del JLabel
+        }
+    }
 }
